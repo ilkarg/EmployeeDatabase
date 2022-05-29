@@ -99,6 +99,16 @@ namespace WpfApp1
                                 if (tableName.Equals("Workers"))
                                 {
                                     data.Add($"{reader["id"]} | {reader["full_name"]} | {reader["birthday"]} | {reader["gender"]}\n");
+                                    Data.workerList.Add(new Worker()
+                                    {
+                                        WorkerId = reader.GetInt32(0),
+                                        Fullname = reader.GetString(1),
+                                        Birthday = reader.GetString(2),
+                                        Gender = reader.GetString(3),
+                                        Job = Data.jobsList[int.Parse(reader.GetString(4)) - 1],
+                                        ChiefFullName = reader.GetString(5),
+                                        Subdivision = reader.GetString(6)
+                                    });
                                 }
                                 else if (tableName.Equals("Jobs")) 
                                 {
@@ -149,8 +159,6 @@ namespace WpfApp1
                                     result += $"{reader["id"]} | {reader["name"]}\n";
                                 }
                             }
-
-                            MessageBox.Show(result);
                         }
                     }
                 }

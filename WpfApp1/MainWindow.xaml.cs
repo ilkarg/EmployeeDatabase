@@ -14,22 +14,24 @@ namespace WpfApp1
             InitializeComponent();
 
             db.CreateAllTables(Data.createTableQuery, true);
+            db.GetAllDataFromTable("Workers");
 
-            UserCard card = new UserCard();
-            UserCard card2 = new UserCard();
+            if (Data.workerList.Count > 0)
+            {
+                foreach(Worker worker in Data.workerList) 
+                {
+                    Data.userCardList.Add(new UserCard());
 
-            MainStackPanel.Children.Add(card);
-            MainStackPanel.Children.Add(card2);
-        }
+                    Data.userCardList[Data.userCardList.Count - 1].UsernameLabel.Content = worker.Fullname;
+                    Data.userCardList[Data.userCardList.Count - 1].BirthdayLabel.Content = $"Дата рождения: {worker.Birthday}";
+                    Data.userCardList[Data.userCardList.Count - 1].GenderLabel.Content = $"Пол: {worker.Gender}";
+                    Data.userCardList[Data.userCardList.Count - 1].JobLabel.Content = $"Должность: {worker.Job}";
+                    Data.userCardList[Data.userCardList.Count - 1].ChiefFullNameLabel.Content = $"Начальник: {worker.ChiefFullName}";
+                    Data.userCardList[Data.userCardList.Count - 1].SubdivisionLabel.Content = $"Подразделение: {worker.Subdivision}";
 
-        public void GetWorkersClick(object sender, RoutedEventArgs e)
-        {
-            db.OutputAllDataFromTable("Workers");
-        }
-
-        public void GetJobsClick(object sender, RoutedEventArgs e)
-        {
-            db.OutputAllDataFromTable("Jobs");
+                    MainStackPanel.Children.Add(Data.userCardList[Data.userCardList.Count - 1]);
+                }
+            }
         }
     }
 }

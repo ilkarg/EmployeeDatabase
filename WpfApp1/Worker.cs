@@ -9,5 +9,8 @@ namespace WpfApp1
 
         public string? Birthday { get; set; }
         public string? Gender { get; set; }
+        public string? Job { get; set; }
+        public string? ChiefFullName { get; set; }
+        public string? Subdivision { get; set; }
     }
 }

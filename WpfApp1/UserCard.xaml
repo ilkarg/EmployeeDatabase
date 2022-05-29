@@ -5,9 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1"
              mc:Ignorable="d" BorderThickness="0 1 0 1" BorderBrush="Black"
-             d:DesignHeight="120">
+             d:DesignHeight="220">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -16,5 +19,8 @@
         <Label Grid.Row="0" Name="UsernameLabel" FontSize="25" FontWeight="Bold">ФИО:</Label>
         <Label Grid.Row="1" Name="BirthdayLabel" FontSize="18">Дата рождения:</Label>
         <Label Grid.Row="2" Name="GenderLabel" FontSize="18">Пол:</Label>
+        <Label Grid.Row="3" Name="JobLabel" FontSize="18">Должность:</Label>
+        <Label Grid.Row="4" Name="ChiefFullNameLabel" FontSize="18">Начальник:</Label>
+        <Label Grid.Row="5" Name="SubdivisionLabel" FontSize="18">Подразделение:</Label>
     </Grid>
 </UserControl>
