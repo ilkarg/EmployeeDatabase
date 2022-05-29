@@ -39,3 +39,5 @@ C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\refint\WpfApp1.d
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.pdb
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.genruntimeconfig.cache
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\ref\WpfApp1.dll
+C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\UserCard.g.cs
+C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\UserCard.baml

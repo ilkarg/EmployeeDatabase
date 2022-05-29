@@ -1,4 +1,6 @@
-﻿namespace WpfApp1
+﻿using System.Collections.Generic;
+
+namespace WpfApp1
 {
     public static class Data
     {
@@ -23,5 +25,8 @@
             "INSERT INTO Jobs (name) VALUES ('Контролер')",
             "INSERT INTO Jobs (name) VALUES ('Рабочий')"
         };
+
+        public static List<UserCard> userCardList = new List<UserCard>();
+        public static List<Worker> workerList = new List<Worker>();
     }
 }
