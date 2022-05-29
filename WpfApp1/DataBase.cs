@@ -7,7 +7,7 @@ namespace WpfApp1
 {
     public class DataBase
     {
-        public string connectionString { get; set; }
+        public string? connectionString { get; set; }
 
         public DataBase(string db)
         {
@@ -15,6 +15,28 @@ namespace WpfApp1
             {
                 this.connectionString = $"Data Source = {db}";
             }
+        }
+
+        public bool DeleteWorker(Worker worker) 
+        {
+            try
+            {
+                string sqlExpression = $"DELETE FROM Workers WHERE id={worker.WorkerId}";
+
+                using (var connection = new SqliteConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqliteCommand command = new SqliteCommand(sqlExpression, connection);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch(Exception error) 
+            {
+                MessageBox.Show(error.Message, "Ошибка");
+                return false;
+            }
+
+            return true;
         }
 
         public bool CreateAllTables(string[] tables, bool fillData) 
@@ -121,7 +143,7 @@ namespace WpfApp1
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "Ошибка");
                 return null;
             }
 
@@ -165,7 +187,7 @@ namespace WpfApp1
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "Ошибка");
                 return false;
             }
 

@@ -6,7 +6,8 @@
         xmlns:uc="clr-namespace:WpfApp1"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="База Данных Работников" Height="450" Width="800">
+        Title="База Данных Работников" Height="450" Width="800" 
+        Icon="pack://application:,,,/database.png">
     <Grid Name="MainGrid">
         <ScrollViewer>
             <StackPanel Name="MainStackPanel"></StackPanel>
