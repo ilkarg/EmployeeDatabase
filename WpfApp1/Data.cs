@@ -35,6 +35,6 @@ namespace WpfApp1
         public static List<UserCard> userCardList = new List<UserCard>();
         public static List<Worker> workerList = new List<Worker>();
 
-        public static MainWindow window { get; set; }
+        public static MainWindow? window { get; set; }
     }
 }

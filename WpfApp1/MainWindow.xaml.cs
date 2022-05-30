@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using Microsoft.Data.Sqlite;
 
 namespace WpfApp1
 {
