@@ -38,7 +38,7 @@ namespace WpfApp1
                 worker.Fullname == FullnameLabel.Content.ToString()
             );
 
-            if (worker is null) 
+            if (worker is null || Data.window is null) 
             {
                 return;
             }
@@ -49,6 +49,7 @@ namespace WpfApp1
             {
                 worker.Job = Data.jobsList[jobId - 1];
                 this.JobLabel.Content = $"Должность: {worker.Job}";
+                Data.window.db.UpdateWorker(worker);
             }
             else if (worker.Job == Data.jobsList[0]) 
             {
@@ -62,7 +63,7 @@ namespace WpfApp1
                 worker.Fullname == FullnameLabel.Content.ToString()
             );
 
-            if (worker is null) 
+            if (worker is null || Data.window is null) 
             {
                 return;
             }
@@ -73,6 +74,7 @@ namespace WpfApp1
             {
                 worker.Job = Data.jobsList[jobId + 1];
                 this.JobLabel.Content = $"Должность: {worker.Job}";
+                Data.window.db.UpdateWorker(worker);
             }
             else if (worker.Job == Data.jobsList[Data.jobsList.Count() - 1]) 
             {

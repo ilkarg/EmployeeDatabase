@@ -39,6 +39,28 @@ namespace WpfApp1
             return true;
         }
 
+        public bool UpdateWorker(Worker worker) 
+        {
+            try 
+            {
+                string sqlExpression = $"UPDATE Workers SET Job={Array.IndexOf(Data.jobsList, worker.Job) + 1} WHERE id={worker.WorkerId}";
+
+                using (var connection = new SqliteConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqliteCommand command = new SqliteCommand(sqlExpression, connection);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch(Exception error) 
+            {
+                MessageBox.Show(error.Message, "Ошибка");
+                return false;
+            }
+
+            return true;
+        }
+
         public bool CreateAllTables(string[] tables, bool fillData) 
         {
             if (tables.Length == 0) 
