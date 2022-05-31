@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace WpfApp1
 {
@@ -19,12 +21,23 @@ namespace WpfApp1
             AddAllWorkers();
         }
 
-        public bool UpdateWorkerList() 
+        public bool UpdateWorkerList(bool filtering) 
         {
             try 
             {
                 MainStackPanel.Children.Clear();
-                AddAllWorkers();
+
+                if (!filtering) 
+                {
+                    AddAllWorkers();
+                }
+                else 
+                {
+                    foreach(UserCard card in Data.filteredWorkerCardsList) 
+                    {
+                        MainStackPanel.Children.Add(card);
+                    }
+                }
             }
             catch(Exception error) 
             {
@@ -63,6 +76,87 @@ namespace WpfApp1
             }
 
             return true;
+        }
+
+        private void ConfirmFilterButtonClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ComboBoxItem jobItem = (ComboBoxItem)JobComboBox.SelectedItem;
+                ComboBoxItem subdivisionItem = (ComboBoxItem)SubdivisionComboBox.SelectedItem;
+
+                if (Data.filter is null) 
+                {
+                    return;
+                }
+
+                if (Data.filter.Trim().Length > 0 || Data.filteredWorkerCardsList.Count > 0)
+                {
+                    Data.filter = "";
+                    Data.filteredWorkerCardsList.Clear();
+                }
+
+                Data.filter = $"{jobItem.Content.ToString()}|{subdivisionItem.Content.ToString()}";
+
+                if (Data.filter != "Нет фильтра|Нет фильтра")
+                {
+                    string[] filter = Data.filter.Split("|");
+
+                    if (filter[0] != "Нет фильтра" && filter[1] == "Нет фильтра")
+                    {
+                        foreach (UserCard card in Data.userCardList)
+                        {
+                            if (card.JobLabel.Content.ToString() == $"Должность: {filter[0]}")
+                            {
+                                if (Data.filteredWorkerCardsList.IndexOf(card) == -1)
+                                {
+                                    Data.filteredWorkerCardsList.Add(card);
+                                }
+                            }
+                        }
+                    }
+                    else if (filter[0] == "Нет фильтра" && filter[1] != "Нет фильтра")
+                    {
+                        foreach (UserCard card in Data.userCardList)
+                        {
+                            if (card.SubdivisionLabel.Content.ToString() == $"Подразделение: {filter[1]}")
+                            {
+                                if (Data.filteredWorkerCardsList.IndexOf(card) == -1)
+                                {
+                                    Data.filteredWorkerCardsList.Add(card);
+                                }
+                            }
+                        }
+                    }
+                    else if (filter[0] != "Нет фильтра" && filter[1] != "Нет фильтра")
+                    {
+                        foreach (UserCard card in Data.userCardList)
+                        {
+                            if (card.JobLabel.Content.ToString() == $"Должность: {filter[0]}"
+                                || card.SubdivisionLabel.Content.ToString() == $"Подразделение: {filter[1]}")
+                            {
+                                if (Data.filteredWorkerCardsList.IndexOf(card) == -1)
+                                {
+                                    Data.filteredWorkerCardsList.Add(card);
+                                }
+                            }
+                        }
+                    }
+
+                    UpdateWorkerList(true);
+                }
+            }
+            catch(Exception error) 
+            {
+                MessageBox.Show(error.Message, "Ошибка");
+            }
+        }
+
+        private void ResetFilterButtonClick(object sender, RoutedEventArgs e)
+        {
+            Data.filter = "";
+            Data.filteredWorkerCardsList = new List<UserCard>();
+            UpdateWorkerList(false);
         }
     }
 }

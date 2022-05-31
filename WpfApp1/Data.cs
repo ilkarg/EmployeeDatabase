@@ -36,5 +36,8 @@ namespace WpfApp1
         public static List<Worker> workerList = new List<Worker>();
 
         public static MainWindow? window { get; set; }
+
+        public static string? filter = "";
+        public static List<UserCard> filteredWorkerCardsList = new List<UserCard>();
     }
 }

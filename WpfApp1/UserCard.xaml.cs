@@ -28,7 +28,7 @@ namespace WpfApp1
             Data.workerList.RemoveAll(worker_ => worker_ == worker);
             Data.userCardList.RemoveAll(card => card.FullnameLabel.Content == this.FullnameLabel.Content);
 
-            Data.window.UpdateWorkerList();
+            Data.window.UpdateWorkerList(false);
             Data.window.db.DeleteWorker(worker);
         }
 
