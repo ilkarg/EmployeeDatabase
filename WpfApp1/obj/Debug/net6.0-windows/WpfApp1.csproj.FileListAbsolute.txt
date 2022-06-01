@@ -44,3 +44,5 @@ C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\UserCard.baml
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\CreateUserWindow.baml
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\CreateUserWindow.g.cs
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\WpfApp1_Content.g.cs
+C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\EditUserWindow.baml
+C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\EditUserWindow.g.cs

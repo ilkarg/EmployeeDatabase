@@ -40,6 +40,8 @@ namespace WpfApp1
         public static string? filter = "";
         public static List<UserCard> filteredWorkerCardsList = new List<UserCard>();
 
+        public static Worker editableWorker;
+
         public static bool isNull(string[] elements)
         {
             foreach (string element in elements)

@@ -61,6 +61,28 @@ namespace WpfApp1
             return true;
         }
 
+        public bool UpdateWorkerData(Worker worker) 
+        {
+            try
+            {
+                string sqlExpression = $"UPDATE Workers SET full_name='{worker.Fullname}', birthday='{worker.Birthday}', gender='{worker.Gender}', job={Array.IndexOf(Data.jobsList, worker.Job) + 1}, chief_full_name='{worker.ChiefFullName}', subdivision='{worker.Subdivision}' WHERE id={worker.WorkerId}";
+
+                using (var connection = new SqliteConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqliteCommand command = new SqliteCommand(sqlExpression, connection);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Ошибка");
+                return false;
+            }
+
+            return true;
+        }
+
         public bool UpdateWorker(Worker worker) 
         {
             try 

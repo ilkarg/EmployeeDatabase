@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\App.xaml
-3-1702362696
+4-1556378122
 1-1929882918
-8415165736
+91866778794
 198279241584
-CreateUserWindow.xaml;MainWindow.xaml;UserCard.xaml;
+CreateUserWindow.xaml;EditUserWindow.xaml;MainWindow.xaml;UserCard.xaml;
 
 False
 

@@ -81,5 +81,22 @@ namespace WpfApp1
                 MessageBox.Show("Сотрудник уже имеет минимально возможную должность, понижение невозможно", "Ошибка");
             }
         }
+
+        private void EditUserButtonClick(object sender, RoutedEventArgs e)
+        {
+            Worker worker = Data.workerList.FirstOrDefault(worker =>
+                worker.Fullname == FullnameLabel.Content.ToString()
+            );
+
+            if (worker is null || Data.window is null)
+            {
+                return;
+            }
+
+            Data.editableWorker = worker;
+
+            EditUserWindow editUserWindow = new EditUserWindow();
+            editUserWindow.Show();
+        }
     }
 }
