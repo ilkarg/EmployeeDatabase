@@ -39,5 +39,18 @@ namespace WpfApp1
 
         public static string? filter = "";
         public static List<UserCard> filteredWorkerCardsList = new List<UserCard>();
+
+        public static bool isNull(string[] elements)
+        {
+            foreach (string element in elements)
+            {
+                if (element.Trim().Length == 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

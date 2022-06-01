@@ -32,7 +32,7 @@ namespace WpfApp1
                 return;
             }
 
-            if (isNull(new string[] { fullname, birthday, gender, job, chiefFullName, subdivision }))
+            if (Data.isNull(new string[] { fullname, birthday, gender, job, chiefFullName, subdivision }))
             {
                 MessageBox.Show("Все поля должны быть заполнены", "Ошибка");
                 return;
@@ -82,19 +82,6 @@ namespace WpfApp1
             {
                 this.Close();
             }
-        }
-
-        private bool isNull(string[] elements)
-        {
-            foreach (string element in elements)
-            {
-                if (element.Trim().Length == 0)
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
     }
 }

@@ -5,10 +5,15 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>database.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="database.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="database.ico" />
   </ItemGroup>
 
   <ItemGroup>
