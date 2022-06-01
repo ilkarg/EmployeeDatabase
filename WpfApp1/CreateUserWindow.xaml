@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApp1.CreateUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление работника" Height="550" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="20 10 20 0">
+            <Label HorizontalAlignment="Center" FontSize="18">ФИО</Label>
+            <TextBox Name="FullnameTextBox" FontSize="18"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="20 10 20 0">
+            <Label HorizontalAlignment="Center" FontSize="18">Дата рождения</Label>
+            <TextBox Name="BirthdayTextBox" FontSize="18"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="20 10 20 0">
+            <Label HorizontalAlignment="Center" FontSize="18">Пол</Label>
+            <ComboBox Name="GenderComboBox" FontSize="18">
+                <ComboBoxItem IsSelected="True">Мужской</ComboBoxItem>
+                <ComboBoxItem>Женский</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="20 10 20 0">
+            <Label HorizontalAlignment="Center" FontSize="18">Должность</Label>
+            <TextBox Name="JobTextBox" FontSize="18"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="20 10 20 0">
+            <Label HorizontalAlignment="Center" FontSize="18">Начальник (ФИО)</Label>
+            <TextBox Name="ChiefFullnameTextBox" FontSize="18"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="20 10 20 0">
+            <Label HorizontalAlignment="Center" FontSize="18">Подразделение</Label>
+            <TextBox Name="SubdivisionTextBox" FontSize="18"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="0" VerticalAlignment="Center">
+            <Button Width="180" Height="50" FontSize="18" Click="AddUserButtonClick">Добавить</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">
+            <Button Width="180" Height="50" FontSize="18" Click="CancelButtonClick">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -39,6 +39,28 @@ namespace WpfApp1
             return true;
         }
 
+        public bool AddUser(Worker worker) 
+        {
+            try 
+            {
+                string sqlExpression = $"INSERT INTO Workers (full_name, birthday, gender, job, chief_full_name, subdivision) VALUES ('{worker.Fullname}', '{worker.Birthday}', '{worker.Gender}', {Array.IndexOf(Data.jobsList, worker.Job) + 1}, '{worker.ChiefFullName}', '{worker.Subdivision}')";
+
+                using (var connection = new SqliteConnection(this.connectionString))
+                {
+                    connection.Open();
+                    SqliteCommand command = new SqliteCommand(sqlExpression, connection);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch(Exception error) 
+            {
+                MessageBox.Show(error.Message, "Ошибка");
+                return false;
+            }
+
+            return true;
+        }
+
         public bool UpdateWorker(Worker worker) 
         {
             try 

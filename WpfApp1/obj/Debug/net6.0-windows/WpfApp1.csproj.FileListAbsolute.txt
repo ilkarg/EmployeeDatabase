@@ -41,3 +41,5 @@ C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.genrunti
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\ref\WpfApp1.dll
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\UserCard.g.cs
 C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\UserCard.baml
+C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\CreateUserWindow.baml
+C:\Users\playc\Desktop\WpfApp1\WpfApp1\obj\Debug\net6.0-windows\CreateUserWindow.g.cs

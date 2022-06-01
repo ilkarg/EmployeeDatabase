@@ -11,6 +11,7 @@
     <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -45,9 +46,13 @@
             <Button Grid.Column="2" FontSize="18" FontWeight="Bold" Width="150" Height="40" Click="ConfirmFilterButtonClick">Применить</Button>
             <Button Grid.Column="3" FontSize="18" FontWeight="Bold" Width="150" Height="40" Click="ResetFilterButtonClick">Сброс</Button>
         </Grid>
+
+        <Grid Grid.Row="1">
+            <Button Width="200" FontSize="16" Margin="0 5 0 5" VerticalAlignment="Center" Click="AddUserButtonClick">Добавить пользователя</Button>
+        </Grid>
         
-        <ScrollViewer Grid.Row="1">
-            <StackPanel Grid.Row="1" Name="MainStackPanel"></StackPanel>
+        <ScrollViewer Grid.Row="2">
+            <StackPanel Grid.Row="2" Name="MainStackPanel"></StackPanel>
         </ScrollViewer>
     </Grid>
 </Window>

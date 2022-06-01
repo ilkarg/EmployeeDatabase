@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+
+#pragma warning disable CS8622
 
 namespace WpfApp1
 {
@@ -13,12 +16,19 @@ namespace WpfApp1
         {
             InitializeComponent();
 
+            Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindowClosing);
+
             Data.window = this;
 
             db.CreateAllTables(Data.createTableQuery, true);
             db.GetAllDataFromTable("Workers");
 
             AddAllWorkers();
+        }
+
+        private void MainWindowClosing(object sender, CancelEventArgs e)
+        {
+            Environment.Exit(0);
         }
 
         public bool UpdateWorkerList(bool filtering) 
@@ -157,6 +167,12 @@ namespace WpfApp1
             Data.filter = "";
             Data.filteredWorkerCardsList = new List<UserCard>();
             UpdateWorkerList(false);
+        }
+
+        private void AddUserButtonClick(object sender, RoutedEventArgs e)
+        {
+            CreateUserWindow createUserWindow = new CreateUserWindow();
+            createUserWindow.Show();
         }
     }
 }
